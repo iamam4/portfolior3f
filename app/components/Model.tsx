@@ -10,7 +10,7 @@ import { useState, useEffect } from 'react'
 
 
 
- const App = (props: any) => {
+ const Model = (props: any) => {
   const [rotate, setRotate] = useState(true)
 
   window.ResizeObserver = ResizeObserver;
@@ -31,16 +31,16 @@ import { useState, useEffect } from 'react'
   const sidesConfig = [
     { rotation: [0, 0, 0], bg: 'orange', modelPath: '/test.glb', index: 0 },
     { rotation: [0, Math.PI, 0], bg: 'indianred', modelPath: '/test1.glb', index: 1 },
-    { rotation: [0, -Math.PI / 2, 0], bg: 'lightcoral', modelPath: '/nothing.glb', index: 2 },
-    { rotation: [0, Math.PI / 2, 0], bg: 'lightgreen', modelPath: '/nothing.glb', index: 3 },
-    { rotation: [0, -Math.PI / 2, 0], bg: 'grey', modelPath: '/Chambre.glb', index: 4 },
-    { rotation: [0, Math.PI / 2, 0], bg: 'lightgreen', modelPath: '/test2.glb', index: 5 }
+    { rotation: [0, -Math.PI / 2, 0], bg: 'black', modelPath: '/nothing.glb', index: 2 },
+    { rotation: [0, Math.PI / 2, 0], bg: 'black', modelPath: '/nothing.glb', index: 3 },
+    { rotation: [0, -Math.PI / 2, 0], bg: 'lightgreen', modelPath: '/test2.glb', index: 4 },
+    { rotation: [0, Math.PI / 2, 0], bg: 'teal', modelPath: '/Chambre.glb', index: 5 }
   ]
 
   
 
   return (
-  <Canvas shadows  camera={{fov: 70 }} resize={{ polyfill: ResizeObserver }}  dpr={2}>  
+  <Canvas shadows  camera={{fov: 40 }} resize={{ polyfill: ResizeObserver }}  dpr={2}>  
       <mesh castShadow receiveShadow>
         <boxGeometry args={[2, 2, 2]} />
         <Edges />
@@ -58,4 +58,4 @@ import { useState, useEffect } from 'react'
 
 }
 
-export default App
+export default Model

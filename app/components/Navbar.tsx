@@ -1,4 +1,5 @@
 import Link from "next/link";
+import path from "path";
 import { FaBehanceSquare, FaGithub } from "react-icons/fa";
 
 const Navbar = () => {
@@ -7,14 +8,17 @@ const Navbar = () => {
         {
             id: 1,
             link: "Projects",
+            path: "/Projects",
         },
         {
             id: 2,
             link: "About",
+            path: "/About",
         },
         {
             id: 3,
             link: "Contact",
+            path: "/Contact",
         },
     ];
 
@@ -28,12 +32,12 @@ const Navbar = () => {
                         </Link>
 
                         <div className=" flex flex-row">
-                            {links.map(({ id, link }) => (
+                            {links.map(({ id, link, path }) => (
                                 <div
                                     key={id}
                                     className="px-4 cursor-pointer font-medium text-slate-200  hover:text-indigo-500 "
                                 >
-                                    <Link href={link}>{link}</Link>
+                                    <Link href={path}>{link}</Link>
                                 </div>
                             ))}
                              <div className="px-4 ml-3 border-l border-slate-300/10">

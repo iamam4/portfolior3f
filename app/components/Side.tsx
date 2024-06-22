@@ -58,7 +58,7 @@ function Side({ rotation = [0, 0, 0], bg = '#f0f0f0', modelPath, index }: SidePr
             <primitive
               object={model.scene}
               position={[0, 0, 0]}
-              rotation={[0, 66, 0]}
+              rotation={[0, 0, 0]}
               scale={[0.7, 0.7, 0.7]}
             />
           )}

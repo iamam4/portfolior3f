@@ -1,6 +1,7 @@
 import { useRef, useEffect } from 'react';
 import { OrbitControls, AdaptiveDpr } from '@react-three/drei';
 import { useFrame, useThree } from '@react-three/fiber';
+import { usePathname, useRouter } from 'next/navigation';
 
 interface ControlsProps {
     rotate: boolean;
@@ -9,11 +10,14 @@ interface ControlsProps {
 const Controls: React.FC<ControlsProps> = ({ rotate }) => {
     const { camera, gl } = useThree();
     const controls = useRef<any>(null);
+    const router = useRouter();
+    const pathname = usePathname();
+
 
     useEffect(() => {
         if (controls.current) {
-            controls.current.maxDistance = 3.5;
-            controls.current.minDistance = 3.5; 
+            controls.current.maxDistance = 5;
+            controls.current.minDistance = 5; 
             controls.current.maxPolarAngle = Math.PI / 2;
             controls.current.minPolarAngle = Math.PI / 2;
             controls.current.enableDamping = true; 
@@ -26,45 +30,27 @@ const Controls: React.FC<ControlsProps> = ({ rotate }) => {
         const angle = controls.current.getAzimuthalAngle();
 
         if (angle > Math.PI / 4 && angle < 3 * Math.PI / 4) {
-            if (window.location.pathname !== '/Projects')
-                window.location.href = '/Projects';
+            if (pathname !== '/Projects')
+                router.push ('/Projects');
         }
         else if (angle > 3 * Math.PI / 4 || angle < -3 * Math.PI / 4) {
-            if (window.location.pathname !== '/About')
-                window.location.href = '/About';
+            if (pathname !== '/About')
+                router.push('/About');
         }
         else if (angle > -3 * Math.PI / 4 && angle < -Math.PI / 4) {
-            if (window.location.pathname !== '/Contact')
-                window.location.href = '/Contact';
+            if (pathname !== '/Contact')
+                router.push('/Contact');
         }
         else {
-            if (window.location.pathname !== '/')
-                window.location.href = '/';
+            if (pathname !== '/')
+                router.push ('/');
         }
     });
 
-    useEffect(() => {
-        // Ajustez les paramètres de caméra et de contrôles en fonction de l'URL actuelle
-        switch (window.location.pathname) {
-            case '/Projects':
-                controls.current.setAzimuthalAngle(Math.PI / 2);
-                break;
-            case '/About':
-                controls.current.setAzimuthalAngle(Math.PI);
-                break;
-            case '/Contact':
-                controls.current.setAzimuthalAngle(3 * Math.PI / 2);
-                break;
-            default:
-                controls.current.setAzimuthalAngle(0);
-                break;
-        }
-        controls.current.autoRotate = window.location.pathname === '/';
-    }, []);
 
-    useEffect(() => {
+    useEffect(() => {   
         // Activez ou désactivez l'autorotation en fonction de la propriété 'rotate'
-        controls.current.autoRotate = rotate;
+        controls.current.autoRotate = null;
     }, [rotate]);
 
     return (
