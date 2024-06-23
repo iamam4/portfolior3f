@@ -57,20 +57,18 @@ function Side({ rotation = [0, 0, 0], bg = '#f0f0f0', modelPath, index }: SidePr
 
     scene.traverse((object) => {
       if ((object as THREE.Mesh).isMesh) {
-        object.castShadow = true
-        object.receiveShadow = true               
-    }  
-    if (object.name === 'Globe'){
-
-      console.log(object);
-      
-      object.material.color = new THREE.Color('#4f46e5')
-      object.material.emissiveIntensity = 1
-      object.material.emissive = new THREE.Color('#4f46e5')
-      object.material.roughness = 0
-    }
-    }
-    )
+        const mesh = object as THREE.Mesh;
+        mesh.castShadow = true;
+        mesh.receiveShadow = true;
+        if (mesh.name === 'Globe') {
+          const material = mesh.material as THREE.MeshStandardMaterial;
+          material.color = new THREE.Color('#4f46e5');
+          material.emissiveIntensity = 1;
+          material.emissive = new THREE.Color('#4f46e5');
+          material.roughness = 0;
+        }
+      }
+    });
 
 
         
