@@ -5,6 +5,9 @@ import Image from "next/image";
 interface ImageProps {
     src: string;
     alt: string;
+    width: number;
+    height: number;
+
 }
 
 interface CardProps {
@@ -27,7 +30,7 @@ const cards: CardProps[] = [
         title: 'Welcome to my Portfolio',
         description: 'Welcome to my portfolio, I am a student in computer science. I am passionate about web development and 3D design.',
         link: '',
-        images: [{ src: '/next.svg', alt: 'Next.js' }, { src: '/react.webp', alt: 'React Three Fiber' }]
+        images: [{ src: '/next.svg', alt: 'Next.js', width: 16, height: 16 }, { src: '/react.webp', alt: 'React Three Fiber',width: 16, height: 16 }]
     },
     {
         id: 2,
@@ -48,7 +51,7 @@ const cards: CardProps[] = [
         title: 'Technical monitoring',
         description: 'I stay informed through social networks and documentation related to the various technologies I work with.',
         link: '',
-        images: [{src: '/blender.png', alt: 'Blender' },{ src: '/next.svg', alt: 'Next.js' }, { src: '/react.webp', alt: 'React Three Fiber' }, { src: '/three.png', alt: 'Three.js' }]
+        images: [{src: '/blender.png', alt: 'Blender', width: 16, height: 16 },{ src: '/next.svg', alt: 'Next.js', width: 16, height: 16 }, { src: '/react.webp', alt: 'React Three Fiber', width: 16, height: 16 }, { src: '/three.png', alt: 'Three.js', width: 16, height: 16 }]
     },
 
 
@@ -71,9 +74,9 @@ const Cards = (props: Props) => {
                 <h3 className="text-2xl font-semibold text-white">{card.title}</h3>
                 <p className="p-4 text-gray-300 flex-grow">{card.description}</p>
                 {card.link && (
-                    <a href={card.link} className="mt-6 text-indigo-600 hover:underline">
-                         <p>Discover my project</p>
-                    </a>
+                    <Link href={'https://www.behance.net/alexandremoreau8/'} target="_blank" className="mt-6 text-indigo-600 hover:text-indigo-400">
+                         <p className="">Click here </p>
+                    </Link>
                 )}
 
 
@@ -83,7 +86,7 @@ const Cards = (props: Props) => {
                             <div key={index} className="flex items-center justify-center px-2 py-1 rounded-lg bg-indigo-950 border border-indigo-600 select-none">
                                 <div className="flex gap-2">
                                     <p className="text-xs font-medium text-white">{image.alt}</p>
-                                    <Image src={image.src} width={16} height={16} alt={image.alt} />
+                                    <Image src={image.src} width={image.width} height={image.width} alt={image.alt} />
                                 </div>
                             </div>
                         ))}

@@ -27,11 +27,8 @@ const Navbar = () => {
         <div className="sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-900/10 border-slate-50/[0.06] supports-backdrop-blur:bg-white/60 dark:bg-transparent">
             <div className="max-w-8xl mx-auto">
                 <div className="py-4 border-b border-slate-300/10 px-4">
-                    <div className="flex w-full items-center justify-between">
-                        <Link href="/">
+                    <div className="flex w-full items-center justify-between">  
                           <h1 className="text-slate-200 ">Alexandre</h1>
-                        </Link>
-
                         <div className=" flex flex-row">
                             {/* {links.map(({ id, link, path }) => (
                                 <div
@@ -42,11 +39,14 @@ const Navbar = () => {
                                 </div>
                             ))} */}
                              <div className="px-4 ml-3 border-l border-slate-300/10">
-                                <FaBehanceSquare className=" text-2xl text-slate-400 hover:text-slate-200 cursor-pointer ml-2"/>
+
+                             <a href="https://www.behance.net/alexandremoreau8/" target="_blank" rel="noreferrer" className="text-slate-200 hover:text-indigo-500"><FaBehanceSquare className=" text-2xl text-slate-400 hover:text-slate-200 cursor-pointer ml-2"/></a>
+                                
+
                                 
                             </div>
                             <div className="px-4">
-                                <FaGithub className=" text-2xl text-slate-400 hover:text-slate-200 cursor-pointer" />
+                            <a href="https://github.com/iamam4" target="_blank" rel="noreferrer" className="text-slate-200 hover:text-indigo-500"><FaGithub className=" text-2xl text-slate-400 hover:text-slate-200 cursor-pointer" /></a>
                             </div>
                         </div>
                     </div>

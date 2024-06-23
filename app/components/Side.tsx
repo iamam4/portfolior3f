@@ -1,9 +1,10 @@
 'use client'
 
 import * as THREE from 'three'
-import { useRef } from 'react'
-import { useGLTF, MeshPortalMaterial, Environment } from '@react-three/drei'
+import { useEffect, useRef } from 'react'
+import { useGLTF, MeshPortalMaterial, Environment, useAnimations } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
+
 
 
 
@@ -21,37 +22,59 @@ function Side({ rotation = [0, 0, 0], bg = '#f0f0f0', modelPath, index }: SidePr
 
     const mesh = useRef<THREE.Mesh>(null)
     const { nodes  } = useGLTF('/aobox-transformed.glb')
-    const model = useGLTF(modelPath || '') 
+    const {scene , animations } = useGLTF(modelPath || '') 
     const time = useRef(0)
+
+    const {actions} = useAnimations(animations, scene);
+
+    useEffect(() => {
+       
+       if (actions && Object.keys(actions).length > 0) {
+        
+        Object.values(actions).forEach((action) => {
+          action?.play()
+        })
+
+      }
+    }, [actions])
     
     
   
     useFrame(() => {
         if (mesh.current) {
-          model.scene.traverse((object) => {
+          scene.traverse((object) => {
             if ((object as THREE.Mesh) && object.name === 'mail') {
 
               time.current += 0.01
               
               object.position.y = Math.sin(time.current * 2) / 10;
-
-             
             }
+            if (object.name === 'Globe'){
+              object.rotation.z += 0.005}
           })
         }
     })
 
-        
-    model.scene.traverse((object) => {
-        if ((object as THREE.Mesh).isMesh) {
-            object.castShadow = true
-            object.receiveShadow = true  
-                 
-        }    
-    })
-    
+    scene.traverse((object) => {
+      if ((object as THREE.Mesh).isMesh) {
+        object.castShadow = true
+        object.receiveShadow = true               
+    }  
+    if (object.name === 'Globe'){
 
-    
+      console.log(object);
+      
+      object.material.color = new THREE.Color('#4f46e5')
+      object.material.emissiveIntensity = 1
+      object.material.emissive = new THREE.Color('#4f46e5')
+      object.material.roughness = 0
+    }
+    }
+    )
+
+
+        
+
     
 
     const geometry = nodes?.Cube ? (nodes.Cube as THREE.Mesh).geometry : new THREE.BoxGeometry()
@@ -66,9 +89,9 @@ function Side({ rotation = [0, 0, 0], bg = '#f0f0f0', modelPath, index }: SidePr
             <spotLight castShadow  color={'#fff'} intensity={0.5}  position={[6,-1,1]} angle={0.2} penumbra={1} shadow-normalBias={0.05} shadow-bias={0.0001} decay= {0} shadow-mapSize={[2048, 2048]}/>
         </mesh>
         <mesh castShadow receiveShadow ref={mesh}>
-          {model && (
+          {scene && (
             <primitive
-              object={model.scene}
+              object={scene}
               position={[0, 0, 0]}
               rotation={[0, 0, 0]}
               scale={[0.7, 0.7, 0.7]}

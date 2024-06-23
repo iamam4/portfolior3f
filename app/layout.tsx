@@ -14,11 +14,10 @@ export default function RootLayout({
     <html lang="en" >
       <body className={`${titilium.className} antialiased`}>
         <Navbar />
-        <div className="flex w-full h-screen bg-gray-950">
+        <div className="flex w-full h-screen bg-gray-950 select-none">
         <Model   id="three-root" className={"flex w-full h-full justify-center items-center "}/>
         {children}
         </div>
-        <Footer />
       </body>
     </html>
   );
