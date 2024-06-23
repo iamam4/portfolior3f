@@ -21,14 +21,24 @@ function Side({ rotation = [0, 0, 0], bg = '#f0f0f0', modelPath, index }: SidePr
     const mesh = useRef<THREE.Mesh>(null)
     const { nodes  } = useGLTF('/aobox-transformed.glb')
     const model = useGLTF(modelPath || '') 
+    const time = useRef(0)
     
     
-    
-    useFrame((state, delta) => {
-        if (mesh.current)
-            mesh.current
-           
-      })
+  
+    useFrame(() => {
+        if (mesh.current) {
+          model.scene.traverse((object) => {
+            if ((object as THREE.Mesh) && object.name === 'mail') {
+
+              time.current += 0.01
+              
+              object.position.y = Math.sin(time.current * 2) / 10;
+
+             
+            }
+          })
+        }
+    })
 
         
     model.scene.traverse((object) => {
@@ -37,7 +47,6 @@ function Side({ rotation = [0, 0, 0], bg = '#f0f0f0', modelPath, index }: SidePr
             object.receiveShadow = true  
                  
         }    
-
     })
     
     
