@@ -40,8 +40,8 @@ import { useState, useEffect } from 'react'
     { rotation: [0, Math.PI, 0], bg: 'indianred', modelPath: '/mail.glb', index: 1 },
     { rotation: [0, -Math.PI / 2, 0], bg: 'black', modelPath: '/nothing.glb', index: 2 },
     { rotation: [0, Math.PI / 2, 0], bg: 'black', modelPath: '/nothing.glb', index: 3 },
-    { rotation: [0, -Math.PI / 2, 0], bg: 'lightgreen', modelPath: '/test2.glb', index: 4 },
-    { rotation: [0, Math.PI / 2, 0], bg: 'teal', modelPath: '/Chambre.glb', index: 5 }
+    { rotation: [0, -Math.PI / 2, 0], bg: 'teal', modelPath: '/Chambre.glb', index: 4 },
+    { rotation: [0, Math.PI / 2, 0], bg: 'lightgreen', modelPath: '/test2.glb', index: 5 }
   ]
 
   

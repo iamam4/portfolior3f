@@ -19,8 +19,8 @@ const Controls: React.FC<ControlsProps> = ({ rotate, path }) => {
        
             controls.current.maxDistance = 5;
             controls.current.minDistance = 5; 
-            controls.current.maxPolarAngle = Math.PI / 2.1;
-            controls.current.minPolarAngle = Math.PI / 2.1;
+            controls.current.maxPolarAngle = Math.PI / 2;
+            controls.current.minPolarAngle = Math.PI / 2;
             controls.current.autoRotateSpeed *= -1;
             controls.current.dampingFactor = 0.1; 
             controls.current.enablePan = false
@@ -57,8 +57,8 @@ const Controls: React.FC<ControlsProps> = ({ rotate, path }) => {
                 router.push ('/Projects');
         }
         else if (angle > 3 * Math.PI / 4 || angle < -3 * Math.PI / 4) {
-            if (pathname !== '/About')
-                router.push('/About');
+            if (pathname !== '/Technical-monitoring')
+                router.push('/Technical-monitoring');
         }
         else if (angle > -3 * Math.PI / 4 && angle < -Math.PI / 4) {
             if (pathname !== '/Contact')
@@ -74,7 +74,7 @@ const Controls: React.FC<ControlsProps> = ({ rotate, path }) => {
     useEffect(() => {
         if (path === '/Projects')
             controls.current.setAzimuthalAngle(Math.PI / 2)
-        else if (path === '/About')
+        else if (path === '/Technical-monitoring')
             controls.current.setAzimuthalAngle(Math.PI)
         else if (path === '/Contact')
             controls.current.setAzimuthalAngle(3 * Math.PI / 2)

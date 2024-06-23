@@ -4,7 +4,7 @@ import * as THREE from 'three'
 import { useRef } from 'react'
 import { useGLTF, MeshPortalMaterial, Environment } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
-import { useControls } from 'leva'
+
 
 
 type SideProps = {
