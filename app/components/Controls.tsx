@@ -19,8 +19,8 @@ const Controls: React.FC<ControlsProps> = ({ rotate, path }) => {
        
             controls.current.maxDistance = 5;
             controls.current.minDistance = 5; 
-            controls.current.maxPolarAngle = Math.PI / 2;
-            controls.current.minPolarAngle = Math.PI / 2;
+            controls.current.maxPolarAngle = Math.PI / 2.1;
+            controls.current.minPolarAngle = Math.PI / 2.1;
             controls.current.autoRotateSpeed *= -1;
             controls.current.dampingFactor = 0.1; 
             controls.current.enablePan = false
