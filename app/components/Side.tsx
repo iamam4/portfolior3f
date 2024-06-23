@@ -26,13 +26,13 @@ function Side({ rotation = [0, 0, 0], bg = '#f0f0f0', modelPath, index }: SidePr
     
     useFrame((state, delta) => {
         if (mesh.current)
-            mesh.current.rotation
+            mesh.current
            
       })
 
         
     model.scene.traverse((object) => {
-        if (object.isMesh) {
+        if ((object as THREE.Mesh).isMesh) {
             object.castShadow = true
             object.receiveShadow = true  
                  

@@ -1,32 +1,55 @@
 import { useRef, useEffect } from 'react';
 import { OrbitControls, AdaptiveDpr } from '@react-three/drei';
-import { useFrame, useThree } from '@react-three/fiber';
+import { useFrame } from '@react-three/fiber';
 import { usePathname, useRouter } from 'next/navigation';
 
 interface ControlsProps {
     rotate: boolean;
+    path: string;
+
 }
 
-const Controls: React.FC<ControlsProps> = ({ rotate }) => {
-    const { camera, gl } = useThree();
+
+const Controls: React.FC<ControlsProps> = ({ rotate, path }) => {
     const controls = useRef<any>(null);
     const router = useRouter();
     const pathname = usePathname();
 
-
-    useEffect(() => {
-        if (controls.current) {
+    const controlsSettings= () => {
+       
             controls.current.maxDistance = 5;
             controls.current.minDistance = 5; 
             controls.current.maxPolarAngle = Math.PI / 2;
             controls.current.minPolarAngle = Math.PI / 2;
-            controls.current.enableDamping = true; 
-            controls.current.autoRotateSpeed = 2;
+            controls.current.autoRotateSpeed *= -1;
             controls.current.dampingFactor = 0.1; 
+            controls.current.enablePan = false
+
+        
+        if (window.innerWidth < 1.75 * window.innerHeight) {
+            controls.current.maxDistance = 7;
+            controls.current.minDistance = 7;
+         
         }
+        
+
+    };
+
+    useEffect(() => {
+        controlsSettings()
+        const handleResize = () => {
+            controlsSettings()
+        }
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
     }, []);
 
+
+
     useFrame(() => {
+
         const angle = controls.current.getAzimuthalAngle();
 
         if (angle > Math.PI / 4 && angle < 3 * Math.PI / 4) {
@@ -45,17 +68,32 @@ const Controls: React.FC<ControlsProps> = ({ rotate }) => {
             if (pathname !== '/')
                 router.push ('/');
         }
+
     });
 
+    useEffect(() => {
+        if (path === '/Projects')
+            controls.current.setAzimuthalAngle(Math.PI / 2)
+        else if (path === '/About')
+            controls.current.setAzimuthalAngle(Math.PI)
+        else if (path === '/Contact')
+            controls.current.setAzimuthalAngle(3 * Math.PI / 2)
+        else
+            controls.current.setAzimuthalAngle(0)
 
+        controls.current.autoRotate = false
+    }, [path])
+
+    
     useEffect(() => {   
-        // Activez ou désactivez l'autorotation en fonction de la propriété 'rotate'
-        controls.current.autoRotate = null;
+        controls.current.autoRotate = rotate;
     }, [rotate]);
+
+
 
     return (
         <>
-            <OrbitControls ref={controls} args={[camera, gl.domElement]} />
+            <OrbitControls ref={controls} />
             <AdaptiveDpr />
         </>
     );

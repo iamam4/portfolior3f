@@ -9,12 +9,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  
   return (
     <html lang="en" >
       <body className={`${titilium.className} antialiased`}>
         <Navbar />
         <div className="flex w-full h-screen bg-gray-950">
-        <Model id="three-root" className={"flex w-full h-full justify-center items-center "}/>
+        <Model   id="three-root" className={"flex w-full h-full justify-center items-center "}/>
         {children}
         </div>
         <Footer />

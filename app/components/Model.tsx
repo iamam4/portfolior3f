@@ -13,9 +13,6 @@ import { useState, useEffect } from 'react'
  const Model = (props: any) => {
   const [rotate, setRotate] = useState(true)
 
-  window.ResizeObserver = ResizeObserver;
-
-
   // For mobile devices
   useEffect(() => {
       const handleMouseDown = () => {
@@ -27,10 +24,20 @@ import { useState, useEffect } from 'react'
       }
   })
 
+  useEffect(() => {
+    const handleMouseDown = () => {
+        setRotate(false)
+    }
+    window.addEventListener("mousedown", handleMouseDown);
+    return () => {
+        window.removeEventListener("mousedown", handleMouseDown);
+    }
+})
+
 
   const sidesConfig = [
     { rotation: [0, 0, 0], bg: 'orange', modelPath: '/test.glb', index: 0 },
-    { rotation: [0, Math.PI, 0], bg: 'indianred', modelPath: '/test1.glb', index: 1 },
+    { rotation: [0, Math.PI, 0], bg: 'indianred', modelPath: '/mail.glb', index: 1 },
     { rotation: [0, -Math.PI / 2, 0], bg: 'black', modelPath: '/nothing.glb', index: 2 },
     { rotation: [0, Math.PI / 2, 0], bg: 'black', modelPath: '/nothing.glb', index: 3 },
     { rotation: [0, -Math.PI / 2, 0], bg: 'lightgreen', modelPath: '/test2.glb', index: 4 },
@@ -46,13 +53,13 @@ import { useState, useEffect } from 'react'
         <Edges />
         <Suspense fallback={null}>
           {sidesConfig.map((config, index) => (
-            <Side key={index} rotation={config.rotation} bg={config.bg} modelPath={config.modelPath} index={config.index} />
+            <Side key={index} rotation={config.rotation as [number, number, number]} bg={config.bg} modelPath={config.modelPath} index={config.index} />
           ))}
           
           
         </Suspense>
       </mesh>
-    <Controls navigate={props.navigate} location={props.location} path={props.path} rotate={rotate} />
+    <Controls  path={props.path} rotate={rotate} />
   </Canvas>
 )
 
