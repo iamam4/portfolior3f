@@ -21,7 +21,7 @@ function Side({ rotation = [0, 0, 0], bg = '#f0f0f0', modelPath, index }: SidePr
 
 
     const mesh = useRef<THREE.Mesh>(null)
-    const { nodes  } = useGLTF('/aobox-transformed.glb')
+    const { nodes  } = useGLTF('/model/aobox-transformed.glb')
     const {scene , animations } = useGLTF(modelPath || '') 
     const time = useRef(0)
 

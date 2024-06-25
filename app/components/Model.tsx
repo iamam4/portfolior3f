@@ -21,7 +21,7 @@ import { useState, useEffect } from 'react'
 
   
   // For desktop devices
-  
+
     const handleMouseDown = useCallback(() => {
         setRotate(false)
     }, [])
@@ -29,12 +29,12 @@ import { useState, useEffect } from 'react'
 
 
   const sidesConfig = [
-    { rotation: [0, 0, 0], bg: 'grey', modelPath: '/atom.glb', index: 0 },
-    { rotation: [0, Math.PI, 0], bg: 'indianred', modelPath: '/mail.glb', index: 1 },
-    { rotation: [0, -Math.PI / 2, 0], bg: 'black', modelPath: '/nothing.glb', index: 2 },
-    { rotation: [0, Math.PI / 2, 0], bg: 'black', modelPath: '/nothing.glb', index: 3 },
-    { rotation: [0, -Math.PI / 2, 0], bg: 'teal', modelPath: '/Chambre.glb', index: 4 },
-    { rotation: [0, Math.PI / 2, 0], bg: '#101727', modelPath: '/globe.glb', index: 5 }
+    { rotation: [0, 0, 0], bg: 'grey', modelPath: '/model/atom.glb', index: 0 },
+    { rotation: [0, Math.PI, 0], bg: 'indianred', modelPath: '/model/mail.glb', index: 1 },
+    { rotation: [0, -Math.PI / 2, 0], bg: 'black', modelPath: '/model/nothing.glb', index: 2 },
+    { rotation: [0, Math.PI / 2, 0], bg: 'black', modelPath: '/model/nothing.glb', index: 3 },
+    { rotation: [0, -Math.PI / 2, 0], bg: 'teal', modelPath: '/model/Chambre.glb', index: 4 },
+    { rotation: [0, Math.PI / 2, 0], bg: '#101727', modelPath: '/model/globe.glb', index: 5 }
   ]
 
   

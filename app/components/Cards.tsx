@@ -30,7 +30,7 @@ const cards: CardProps[] = [
         title: 'Welcome to my Portfolio',
         description: 'Welcome to my portfolio, I am a student in computer science. I am passionate about web development and 3D design.',
         link: '',
-        images: [{ src: '/next.svg', alt: 'Next.js', width: 16, height: 16 }, { src: '/react.webp', alt: 'React Three Fiber',width: 16, height: 16 }]
+        images: [{ src: '/next.svg', alt: 'Next.js', width: 16, height: 16 }, { src: '/react.webp', alt: 'React Three Fiber', width: 16, height: 16 }, { src: '/tailwind.svg', alt: 'Tailwind CSS', width: 16, height: 16 }]
     },
     {
         id: 2,
@@ -51,7 +51,7 @@ const cards: CardProps[] = [
         title: 'Technical monitoring',
         description: 'I stay informed through social networks and documentation related to the various technologies I work with.',
         link: '',
-        images: [{src: '/blender.png', alt: 'Blender', width: 16, height: 16 },{ src: '/next.svg', alt: 'Next.js', width: 16, height: 16 }, { src: '/react.webp', alt: 'React Three Fiber', width: 16, height: 16 }, { src: '/three.png', alt: 'Three.js', width: 16, height: 16 }]
+        images: [{ src: '/next.svg', alt: 'Next.js', width: 16, height: 16 }, { src: '/angular.png', alt: 'Angular', width: 16, height: 16 }, { src: '/react.webp', alt: 'React Three Fiber', width: 16, height: 16 }, { src: '/three.png', alt: 'Three.js', width: 16, height: 16 }, { src: '/blender.png', alt: 'Blender', width: 18, height: 16 }]
     },
 
 
@@ -75,7 +75,7 @@ const Cards = (props: Props) => {
                 <p className="p-4 text-gray-300 flex-grow">{card.description}</p>
                 {card.link && (
                     <Link href={'https://www.behance.net/alexandremoreau8/'} target="_blank" className="mt-6 text-indigo-600 hover:text-indigo-400">
-                         <p className="">Click here </p>
+                        <p className="">Click here </p>
                     </Link>
                 )}
 
@@ -92,20 +92,20 @@ const Cards = (props: Props) => {
                         ))}
                     </div>
                 )}
-                {card.id == 3 &&(
+                {card.id == 3 && (
 
 
                     <div className="flex  gap-2">
-                        
+
                         <div className="flex items-center justify-center px-2 py-1 rounded-lg bg-teal-900 border border-teal-600 select-none">
-                        <Link href={"mailto:amoreau77181@gmail.com"} >
-                            <p className="text-xs font-medium text-white">Contact me</p>
-                        </Link>
+                            <Link href={"mailto:amoreau77181@gmail.com"} >
+                                <p className="text-xs font-medium text-white">Contact me</p>
+                            </Link>
                         </div>
                         <div className="flex items-center justify-center px-2 py-1 rounded-lg bg-teal-900 border border-teal-600 select-none">
-                        <Link href={"/cv.pdf"} >
-                            <p className="text-xs font-medium text-white">My resume</p>
-                        </Link>
+                            <Link href={"/cv.pdf"} >
+                                <p className="text-xs font-medium text-white">My resume</p>
+                            </Link>
                         </div>
                     </div>
 
