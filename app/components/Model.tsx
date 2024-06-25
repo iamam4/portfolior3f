@@ -20,6 +20,8 @@ import { useState, useEffect } from 'react'
   }, [])
 
   
+  // For desktop devices
+  
     const handleMouseDown = useCallback(() => {
         setRotate(false)
     }, [])
