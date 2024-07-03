@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 
+
 interface ImageProps {
     src: string;
     alt: string;
@@ -66,6 +67,7 @@ const Cards = (props: Props) => {
     }
 
     return (
+        
         <div className="relative flex flex-col p-4 w-[35rem] h-[16rem] border-2 border-slate-500 rounded">
             {/* Background Div */}
             <div className="absolute inset-0 z-1 h-full w-full bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_0%,#000_70%,transparent_100%)]"></div>
@@ -113,6 +115,7 @@ const Cards = (props: Props) => {
                 }
             </div>
         </div>
+
     );
 }
 

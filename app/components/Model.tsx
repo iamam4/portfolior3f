@@ -6,7 +6,7 @@ import { Suspense, useCallback } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Edges} from '@react-three/drei'
 import ResizeObserver from 'resize-observer-polyfill';
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 
 
@@ -52,7 +52,7 @@ import { useState, useEffect } from 'react'
           
         </Suspense>
       </mesh>
-    <Controls  path={props.path} rotate={rotate} />
+    <Controls router={props.router} pathname={props.pathname}  path={props.path} rotate={rotate} />
   </Canvas>
 )
 

@@ -6,14 +6,15 @@ import { usePathname, useRouter } from 'next/navigation';
 interface ControlsProps {
     rotate: boolean;
     path: string;
-
+    router: any;
+    pathname: string;
 }
 
 
-const Controls: React.FC<ControlsProps> = ({ rotate, path }) => {
+const Controls: React.FC<ControlsProps> = ({ rotate, path, router, pathname }) => {
     const controls = useRef<any>(null);
-    const router = useRouter();
-    const pathname = usePathname();
+    router = useRouter();
+    pathname = usePathname();
 
     const controlsSettings= () => {
        
@@ -22,7 +23,6 @@ const Controls: React.FC<ControlsProps> = ({ rotate, path }) => {
             controls.current.maxPolarAngle = Math.PI / 2;
             controls.current.minPolarAngle = Math.PI / 2;
             controls.current.autoRotateSpeed *= -1;
-            controls.current.dampingFactor = 0.1; 
             controls.current.enablePan = false
 
         
@@ -73,16 +73,17 @@ const Controls: React.FC<ControlsProps> = ({ rotate, path }) => {
 
     useEffect(() => {
         if (path === '/Projects')
-            controls.current.setAzimuthalAngle(Math.PI / 2)
+            controls.current.setAzimuthalAngle(Math.PI / 2);
         else if (path === '/Technical-monitoring')
-            controls.current.setAzimuthalAngle(Math.PI)
+            controls.current.setAzimuthalAngle(Math.PI);
         else if (path === '/Contact')
-            controls.current.setAzimuthalAngle(3 * Math.PI / 2)
+            controls.current.setAzimuthalAngle(3 * Math.PI / 2);
         else
-            controls.current.setAzimuthalAngle(0)
+            controls.current.setAzimuthalAngle(0);
 
-        controls.current.autoRotate = false
-    }, [path])
+        controls.current.autoRotate = false;
+
+    }, [path]);
 
     
     useEffect(() => {   
