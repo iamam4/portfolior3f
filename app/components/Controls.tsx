@@ -23,14 +23,7 @@ const Controls: React.FC<ControlsProps> = ({ rotate, path, router, pathname }) =
             controls.current.maxPolarAngle = Math.PI / 2;
             controls.current.minPolarAngle = Math.PI / 2;
             controls.current.autoRotateSpeed *= -1;
-            controls.current.enablePan = false
-
-        
-        if (window.innerWidth < 1.75 * window.innerHeight) {
-            controls.current.maxDistance = 7;
-            controls.current.minDistance = 7;
-         
-        }
+            controls.current.enablePan = false;
         
 
     };
