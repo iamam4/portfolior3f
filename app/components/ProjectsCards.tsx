@@ -88,7 +88,14 @@ const cards: CardProjectsProps[] = [
         link: '',
         images: [{ src: '/skullz.jpg', alt: 'SkullzCity' }]
     }
-
+    ,
+    {
+        id: 10,
+        title: 'Clock',
+        category: 'web - design - development - 3D',
+        link: '',
+        images: [{ src: '/clock.png', alt: 'Clock' }]
+    },
 
 ]
 
