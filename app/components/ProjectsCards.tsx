@@ -120,7 +120,7 @@ const ProjectsCards = () => {
                 <div className="w-full md:w-1/2 mt-2 h-0.5 bg-gradient-to-r from-slate-950 from-49% via-violet-400 via-50% to-slate-950 to-100%"></div>
             </div>
 
-            <div className='p-20'>
+            <div className='p-5 sm:p-20'>
                 <div className="grid gap-10 lg:grid-cols-2 xl:grid-cols-3">
                     {cards.map((card) => (
                         <div key={card.id} className="group relative flex flex-col overflow-hidden cursor-pointer  duration-200 ease-in transform hover:scale-105">
