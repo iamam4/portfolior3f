@@ -49,7 +49,7 @@ const Navbar: React.FC<NavbarProps> = ({ setPath }) => {
                             )
                         ))}
 
-                        <div className=" flex flex-row">
+                        <div className=" hidden sm:flex flex-row">
                             {links.map(({ id, link, path }) => (
                                 id !== 1 && (
                                     <div
