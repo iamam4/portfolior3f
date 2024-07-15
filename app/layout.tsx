@@ -35,7 +35,7 @@ export default function RootLayout({
           </div>
           )}
         {onlyModel && (
-          <div className="flex flex-col w-screen h-screen bg-slate-950 lg:flex-row ">
+          <div className="flex flex-col w-screen h-screen bg-slate-950 lg:flex-row">
             <Model path={path} navigate={router} location={pathname} id="three-root" className={"flex w-full h-full justify-center items-center "} />
             <AnimatePresence mode="wait" initial={false} >
               {children}

@@ -6,4 +6,14 @@ export const titilium = Titillium_Web({
     weight: ['400'],
 })
 
+export const blacktitilium = Titillium_Web({
+    subsets: ['latin'],
+    weight: ['700'],
+})
+
+export const lighttitilium = Titillium_Web({
+    subsets: ['latin'],
+    weight: ['300'],
+})
+
 

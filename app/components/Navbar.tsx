@@ -35,7 +35,7 @@ const Navbar: React.FC<NavbarProps> = ({ setPath }) => {
 
 
     return (
-        <div className="sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors border-b duration-500 dark:border-slate-50/[0.06] bg-slate-600/15">
+        <div className="sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors border-b duration-500 border-slate-50/[0.06] bg-slate-600/15">
         <div className="max-w-8xl mx-auto">
                 <div className="py-4 px-4">
                     <div className="flex w-full items-center justify-between">
