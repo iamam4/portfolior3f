@@ -38,7 +38,7 @@ const cards: CardProps[] = [
         id: 2,
         title: 'Projects',
         description: 'Discover my projects and my collaborations.',
-        link: '/Projects/Detailed',
+        link: '/Projects/Discover',
         images: []
     },
     {

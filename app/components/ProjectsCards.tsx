@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { blacktitilium, lighttitilium } from "../ui/fonts";
 import '../globals.css';
 
@@ -25,21 +26,21 @@ const cards: CardProjectsProps[] = [
         id: 1,
         title: 'School Open Day | Website and Virtual Tour',
         category: 'web - design - development - 3D',
-        link: '',
+        link: '/Projects/Discover/jpo-web',
         images: [{ src: '/jpo-homepage.png', alt: 'JPO' }]
     },
     {
         id: 2,
         title: 'School Open Day | Dashboard',
         category: 'web - development - back-end',
-        link: '',
+        link: '/Projects/Discover/jpo-dashboard',
         images: [{ src: '/jpo-dashboard.png', alt: 'Dashboard' }]
     },
     {
         id: 3,
         title: 'E-Commerce Symfony',
         category: 'web - development - back-end',
-        link: '',
+        link: '/Projects/Discover/symfony',
         images: [{ src: '/symfony.png', alt: 'Symfony' }]
     },
 
@@ -47,14 +48,14 @@ const cards: CardProjectsProps[] = [
         id: 4,
         title: 'Bubble',
         category: 'design - concept - animation - 3D',
-        link: '',
+        link: '/Projects/Discover/bubble',
         images: [{ src: '/bubble-v1.png', alt: 'Bubble' }]
     },
     {
         id: 5,
         title: 'Silmo',
         category: 'design - concept - animation - 3D',
-        link: '',
+        link: '/Projects/Discover/silmo',
         images: [{ src: '/silmo.png', alt: 'Silmo' }]
 
     },
@@ -62,14 +63,14 @@ const cards: CardProjectsProps[] = [
         id: 6,
         title: '0147',
         category: 'design - concept - animation -3D',
-        link: '',
+        link: '/Projects/Discover/0147',
         images: [{ src: '/0147.png', alt: '0147' }]
     },
     {
         id: 7,
         title: 'Former Portfolio',
         category: 'web - design - development',
-        link: '',
+        link: '/Projects/Discover/former-portfolio',
         images: [{ src: '/portfolio.png', alt: 'Portfolio' }]
 
     },
@@ -77,7 +78,7 @@ const cards: CardProjectsProps[] = [
         id: 8,
         title: 'Stavkirke',
         category: 'web - design - development - 3D',
-        link: '',
+        link: '/Projects/Discover/stavkirke',
         images: [{ src: '/stavkirke.png', alt: 'Stavkirke' }]
 
     },
@@ -85,17 +86,16 @@ const cards: CardProjectsProps[] = [
         id: 9,
         title: 'SkullzCity',
         category: 'design - concept - 3D',
-        link: '',
+        link: '/Projects/Discover/skullzcity',
         images: [{ src: '/skullz.jpg', alt: 'SkullzCity' }]
     }
-    ,
-    {
-        id: 10,
-        title: 'Clock',
-        category: 'web - design - development - 3D',
-        link: '',
-        images: [{ src: '/clock.png', alt: 'Clock' }]
-    },
+    // {
+    //     id: 10,
+    //     title: 'Clock',
+    //     category: 'web - design - development - 3D',
+    //     link: '',
+    //     images: [{ src: '/clock.png', alt: 'Clock' }]
+    // },
 
 ]
 
@@ -122,8 +122,10 @@ const ProjectsCards = () => {
 
             <div className='p-5 sm:p-20'>
                 <div className="grid gap-10 lg:grid-cols-2 xl:grid-cols-3">
+                   
                     {cards.map((card) => (
-                        <div key={card.id} className="group relative flex flex-col overflow-hidden cursor-pointer  duration-200 ease-in transform hover:scale-105">
+                        <Link key={card.id} href={card.link}>
+                        <div className="group relative flex flex-col overflow-hidden cursor-pointer  duration-200 ease-in transform hover:scale-105">
                             <Image
                                 src={card.images[0].src}
                                 alt={card.images[0].alt}
@@ -138,7 +140,9 @@ const ProjectsCards = () => {
                                 <p className={`${blacktitilium.className} antialiased text-white text-xl`}>{card.title}</p>
                             </div>
                         </div>
+                        </Link>
                     ))}
+                    
                     <div>
                     </div>
                 </div>
