@@ -114,7 +114,7 @@ const ProjectsCards = () => {
                     </div>
             </div>
             <div className='flex justify-center p-8'>
-                <h1 className={'text-white text-3xl uppercase font-bold'}> Discover my projects</h1>
+                <h1 className={'text-white text-2xl uppercase font-bold'}> Discover my projects</h1>
             </div>
             <div className='flex justify-center w-full'>
                 <div className="w-full md:w-1/2 mt-2 h-0.5 bg-gradient-to-r from-slate-950 from-49% via-violet-400 via-50% to-slate-950 to-100%"></div>
