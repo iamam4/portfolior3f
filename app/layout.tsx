@@ -27,6 +27,9 @@ export default function RootLayout({
 
   return (
     <html lang="en" >
+      <head>
+        <title>R3F Portoflio | Alexandre | Creative Developer</title>
+      </head>
       <body className={`${titilium.className} antialiased`}>
         <Navbar setPath={setPath} />
         {!onlyModel && (
