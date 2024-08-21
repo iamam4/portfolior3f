@@ -114,7 +114,7 @@ const ProjectsCards = () => {
                     </div>
             </div>
             <div className='flex justify-center p-8'>
-                <h1 className={'text-white text-xl uppercase font-bold'}> Discover my projects</h1>
+                <h1 className={'text-white text-3xl uppercase font-bold'}> Discover my projects</h1>
             </div>
             <div className='flex justify-center w-full'>
                 <div className="w-full md:w-1/2 mt-2 h-0.5 bg-gradient-to-r from-slate-950 from-49% via-violet-400 via-50% to-slate-950 to-100%"></div>
@@ -125,7 +125,8 @@ const ProjectsCards = () => {
                    
                     {cards.map((card) => (
                         <Link key={card.id} href={card.link}>
-                        <div className="group relative flex flex-col overflow-hidden cursor-pointer  duration-200 ease-in transform hover:scale-105">
+                        <div className="group relative flex flex-col cursor-pointer rounded-lg">
+                           
                             <Image
                                 src={card.images[0].src}
                                 alt={card.images[0].alt}
@@ -134,7 +135,6 @@ const ProjectsCards = () => {
                                 objectFit='cover'
                                 className='w-full h-auto rounded-lg'
                             />
-                            
                             <div className='pt-2'>
                                 <p className={`${lighttitilium.className} antialiased text-violet-400 uppercase text-sm items-center`}>{card.category}</p>
                                 <p className={`${blacktitilium.className} antialiased text-white text-xl`}>{card.title}</p>
