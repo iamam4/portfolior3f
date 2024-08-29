@@ -141,7 +141,7 @@ const ProjectsGrid = (props: Props) => {
     }
 
     return (
-        <div className="flex w-full p-16">
+        <div className="flex w-full p-6 sm:p-16">
             <div className="flex flex-col justify-center items-center">
                 <h1 className="text-4xl font-black text-white text-center">{project.title}</h1>
                 <div className='flex justify-center w-full p-8'>
@@ -160,10 +160,10 @@ const ProjectsGrid = (props: Props) => {
                     </div>
                 )}
                 <div className="w-3/4 text-justify pt-10">
-                    <p className="text-lg text-white">{project.description}</p>
+                    <p className="text-sm sm:text-lg text-white">{project.description}</p>
                 </div>
 
-                <div className="grid grid-cols-4 gap-4 p-20">
+                <div className="grid grid-cols-4 gap-4 p-10 sm:p-20">
                     {project.images.map((image,  index) => (
                         <div
                             key={index}
