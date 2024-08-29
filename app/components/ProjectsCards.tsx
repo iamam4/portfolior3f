@@ -1,13 +1,8 @@
 'use client'
 import '../globals.css';
 import { blacktitilium, lighttitilium } from "../ui/fonts";
-import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import SkeletonCard from './../ui/SkeletonCard';
-import { is } from '@react-three/fiber/dist/declarations/src/core/utils';
-
-
 
 
 interface ProjectsImageProps {
@@ -99,13 +94,6 @@ const cards: CardProjectsProps[] = [
 
 const ProjectsCards = () => {
 
-    const [isLoading, setLoading] = useState(true);
-
-    useEffect(() => {
-        setTimeout(() => {
-            setLoading(false);
-        }, 2000);
-    }, []);
 
     return (
 
@@ -129,9 +117,7 @@ const ProjectsCards = () => {
                 
                 <div className="grid gap-10 lg:grid-cols-2 xl:grid-cols-3">
 
-                    {isLoading ? Array.from({ length: 9 }).map((_, index) => (
-                        <SkeletonCard key={index} />
-                    )) :
+                    {
                         cards.map((card) => (
                             
                             <Link key={card.id} href={card.link}>
