@@ -207,10 +207,10 @@ const ProjectsGrid = (props: Props) => {
 
                 {modal && selectedImage && (
                     <div className="fixed flex items-center justify-center left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-screen h-screen bg-black/70 z-[900] backdrop-blur-[2px]" onClick={closeModal}>
-                        <button className="p-4">
+                        <button className="sm:p-4">
                             <IoIosArrowRoundBack className="text-white text-5xl" onClick={(e) => { e.stopPropagation(); prevProject(); }} />
                         </button>
-                        <div className="relative mx-10" onClick={handleModalClick}>
+                        <div className="relative sm:mx-10" onClick={handleModalClick}>
                             <Image
                                 src={selectedImage.src}
                                 width={1400}
@@ -218,7 +218,7 @@ const ProjectsGrid = (props: Props) => {
                                 alt={selectedImage.alt}
                             />
                         </div>
-                        <button className="p-4">
+                        <button className="sm:p-4">
                             <IoIosArrowRoundForward className="text-white text-5xl" onClick={(e) => { e.stopPropagation(); nextProject(); }} />
                         </button>
                     </div>
