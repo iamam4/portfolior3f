@@ -148,7 +148,7 @@ const ProjectsGrid = (props: Props) => {
                     <div className="w-full md:w-1/2 mt-2 h-0.5 bg-gradient-to-r from-slate-950 from-49% via-violet-400 via-50% to-slate-950 to-100%"></div>
                 </div>
                 {project.techno.length > 0 && (
-                    <div className="flex flex-wrap gap-2 ">
+                    <div className="flex flex-wrap gap-2 justify-center ">
                         {project.techno.map((image, index) => (
                             <div key={index} className="flex items-center justify-center px-2 py-1 rounded-lg bg-indigo-950 border border-indigo-600 select-none">
                                 <div className="flex gap-2">

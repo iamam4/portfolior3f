@@ -68,7 +68,7 @@ const Cards = (props: Props) => {
 
     return (
         
-        <div className="relative flex flex-col p-4 w-[30rem] h-[13rem] border border-slate-500 rounded-lg">
+        <div className="relative flex flex-col p-4 w-[20rem] sm:w-[30rem] h-[13rem] border border-slate-500 rounded-lg">
             {/* Background Div */}
             <div className="z-0 absolute inset-0 h-full w-full bg-transparent bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)]"></div>
             {/* Content */}
@@ -83,7 +83,7 @@ const Cards = (props: Props) => {
           
             className="relative z-10 flex flex-col h-full">
                 <h3 className="text-2xl font-semibold text-white">{card.title}</h3>
-                <p className="p-4 text-gray-300 flex-grow">{card.description}</p>
+                <p className="p-4 text-gray-300 flex-grow text-sm sm:text-lg">{card.description}</p>
                 {card.link && (
                     <Link href={card.link}  className="mt-6 text-violet-400 hover:text-violet-300">
                         <p className="">Click here </p>
@@ -92,11 +92,11 @@ const Cards = (props: Props) => {
 
 
                 {card.images.length > 0 && (
-                    <div className="flex flex-wrap gap-2 ">
+                    <div className="flex flex-wrap gap-2">
                         {card.images.map((image, index) => (
                             <div key={index} className="flex items-center justify-center px-2 py-1 rounded-lg bg-indigo-950 border border-indigo-600 select-none">
-                                <div className="flex gap-2">
-                                    <p className="text-xs font-medium text-white">{image.alt}</p>
+                                <div className="flex gap-2 ">
+                                    <p className=" hidden sm:flex text-xs font-medium text-white">{image.alt}</p>
                                     <Image src={image.src} width={image.width} height={image.width} alt={image.alt} />
                                 </div>
                             </div>
