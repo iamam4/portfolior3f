@@ -102,7 +102,9 @@ const ProjectsCards = () => {
     const [isLoading, setLoading] = useState(true);
 
     useEffect(() => {
-      setLoading(false);
+        setTimeout(() => {
+            setLoading(false);
+        }, 2000);
     }, []);
 
     return (
