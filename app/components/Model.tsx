@@ -1,5 +1,4 @@
 'use client'
-
 import { default as Side } from './Side'
 import { default as Controls} from './Controls'
 import { Suspense, useCallback } from 'react'
@@ -7,6 +6,7 @@ import { Canvas } from '@react-three/fiber'
 import { Edges} from '@react-three/drei'
 import ResizeObserver from 'resize-observer-polyfill';
 import { useState } from 'react'
+import Loader from '../ui/Loader'
 
 
 
@@ -40,20 +40,18 @@ import { useState } from 'react'
   
 
   return (
+    <Suspense fallback={<Loader />}>
   <Canvas onMouseDown={handleMouseDown} onTouchStart={handleTouchStart} shadows  camera={{fov: 40 }} resize={{ polyfill: ResizeObserver }}  dpr={2}>  
       <mesh castShadow receiveShadow>
         <boxGeometry args={[2, 2, 2]} />
         <Edges />
-        <Suspense fallback={null}>
           {sidesConfig.map((config, index) => (
             <Side key={index} rotation={config.rotation as [number, number, number]} bg={config.bg} modelPath={config.modelPath} index={config.index} />
           ))}
-          
-          
-        </Suspense>
       </mesh>
     <Controls router={props.router} pathname={props.pathname}  path={props.path} rotate={rotate} />
   </Canvas>
+  </Suspense>
 )
 
 }

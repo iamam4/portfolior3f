@@ -1,7 +1,12 @@
+'use client'
+import '../globals.css';
+import { blacktitilium, lighttitilium } from "../ui/fonts";
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { blacktitilium, lighttitilium } from "../ui/fonts";
-import '../globals.css';
+import SkeletonCard from './../ui/SkeletonCard';
+import { is } from '@react-three/fiber/dist/declarations/src/core/utils';
+
 
 
 
@@ -89,29 +94,27 @@ const cards: CardProjectsProps[] = [
         link: '/Projects/Discover/skullzcity',
         images: [{ src: '/skullz.jpg', alt: 'SkullzCity' }]
     }
-    // {
-    //     id: 10,
-    //     title: 'Clock',
-    //     category: 'web - design - development - 3D',
-    //     link: '',
-    //     images: [{ src: '/clock.png', alt: 'Clock' }]
-    // },
-
-]
+];
 
 
 const ProjectsCards = () => {
 
+    const [isLoading, setLoading] = useState(true);
+
+    useEffect(() => {
+      setLoading(false);
+    }, []);
 
     return (
 
-        <div> 
+
+        <div>
             <div className='flex w-full justify-center'>
-                    <div className="atom">
-                        <div className="line line1"></div>
-                        <div className="line line2"></div>
-                        <div className="line line3"></div>
-                    </div>
+                <div className="atom">
+                    <div className="line line1"></div>
+                    <div className="line line2"></div>
+                    <div className="line line3"></div>
+                </div>
             </div>
             <div className='flex justify-center p-8'>
                 <h1 className={'text-white text-2xl uppercase font-bold'}> Discover my projects</h1>
@@ -121,30 +124,32 @@ const ProjectsCards = () => {
             </div>
 
             <div className='p-5 sm:p-20'>
+                
                 <div className="grid gap-10 lg:grid-cols-2 xl:grid-cols-3">
-                   
-                    {cards.map((card) => (
-                        <Link key={card.id} href={card.link}>
-                        <div className="group relative flex flex-col cursor-pointer rounded-lg">
-                           
-                            <Image
-                                src={card.images[0].src}
-                                alt={card.images[0].alt}
-                                width={3024}
-                                height={1644}
-                                objectFit='cover'
-                                className='w-full h-auto rounded-lg'
-                            />
-                            <div className='pt-2'>
-                                <p className={`${lighttitilium.className} antialiased text-violet-400 uppercase text-sm items-center`}>{card.category}</p>
-                                <p className={`${blacktitilium.className} antialiased text-white text-xl`}>{card.title}</p>
-                            </div>
-                        </div>
-                        </Link>
-                    ))}
-                    
-                    <div>
-                    </div>
+
+                    {isLoading ? Array.from({ length: 9 }).map((_, index) => (
+                        <SkeletonCard key={index} />
+                    )) :
+                        cards.map((card) => (
+                            
+                            <Link key={card.id} href={card.link}>
+                                <div className="group relative flex flex-col cursor-pointer rounded-lg">
+
+                                    <Image
+                                        src={card.images[0].src}
+                                        alt={card.images[0].alt}
+                                        width={3024}
+                                        height={1644}
+                                        objectFit='cover'
+                                        className='w-full h-auto rounded-lg'
+                                    />
+                                    <div className='pt-2'>
+                                        <p className={`${lighttitilium.className} antialiased text-violet-400 uppercase text-sm items-center`}>{card.category}</p>
+                                        <p className={`${blacktitilium.className} antialiased text-white text-xl`}>{card.title}</p>
+                                    </div>
+                                </div>
+                            </Link>
+                        ))}
                 </div>
             </div>
         </div>
