@@ -106,16 +106,10 @@ const Cards = (props: Props) => {
                 {card.id == 3 && (
 
 
-                    <div className="flex gap-2">
-
+                    <div className="flex">
                         <div className="flex items-center justify-center px-2 py-1 rounded-lg bg-teal-900 border border-teal-600 select-none">
                             <Link href={"mailto:amoreau77181@gmail.com"} >
                                 <p className="text-xs font-medium text-white">Contact me</p>
-                            </Link>
-                        </div>
-                        <div className="flex items-center justify-center px-2 py-1 rounded-lg bg-teal-900 border border-teal-600 select-none">
-                            <Link href={"/cv.pdf"} >
-                                <p className="text-xs font-medium text-white">My resume</p>
                             </Link>
                         </div>
                     </div>

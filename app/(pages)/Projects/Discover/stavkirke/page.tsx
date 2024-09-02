@@ -1,11 +1,11 @@
-
+import ProjectsGrid from "@/app/components/ProjectsGrid";
 
 
 export default function SodWeb() {
     
     return (
-        <div className='text-white h-screen w-screen'>
-            <span>Test</span>
+        <div>
+            <ProjectsGrid id={3}  />
         </div>
     );
 

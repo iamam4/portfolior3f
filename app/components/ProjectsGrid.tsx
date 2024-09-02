@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useCallback } from "react";
 import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
+import Link from "next/link";
 
 
 
@@ -51,6 +52,14 @@ const projects: GridProps[] = [
     },
     {
         id: 2,
+        title: 'Dashboard | School Management',
+        description: 'For a trimester project, I developed a dashboard to manage my school\'s open day. The dashboard is user-friendly and responsive. It provides clear visitor statistics through detailed graphs and charts. Features include an expandable and collapsible sidebar, searchable and filterable data lists, and a secure system for administrators. Administrators can customize the dashboard\'s appearance with themes and adjust chart settings as needed. It also includes a dark mode. This project allowed me to enhance my skills in data management and project handling.',
+        techno : [{ src: '/logo/angular.png', alt: 'Angular', width: 16, height: 16 }, { src: '/logo/typescript.svg', alt: 'TypeScript', width: 16, height: 16 }, { src: '/logo/php.svg', alt: 'PHP', width: 20, height: 20 }, { src: '/logo/sql.svg', alt: 'SQL', width: 16, height: 16 }],
+        images : [{src: '/jpo-dashboard.png', alt: 'Dashboard'}, {src: '/dashboard/jpo-dashboard-dark.png', alt: 'Dashboard'}, {src: '/dashboard/charts-light.png', alt: 'Charts'}, {src : '/dashboard/list-light.png', alt: 'List'},{src: '/dashboard/charts-dark.png', alt:'Charts'}, {src: '/dashboard/list-dark.png', alt : 'List'}, {src: '/dashboard/settings.jpg', alt: 'Settings'}, {src: '/dashboard/mobile-light.jpg', alt: 'Mobile'}, {src: '/dashboard/mobile-dark.jpg', alt: 'Mobile'}],
+        video : []
+    },
+    {
+        id: 6,
         title: '0147 | Sunglasses',
         description: 'This project is a short 3D video realisation of a sun glasses model. The goal was to create a realistic and dynamic video to showcase the product. The video was created using Blender and rendered with Cycles. The model was created from scratch and the textures were hand painted. The video was edited with Adobe Premiere Pro.',
         techno: [{ src: '/logo/blender.png', alt: 'Blender', width: 18, height: 16 }, { src: '/logo/premiere.svg', alt: 'Premiere Pro', width: 16, height: 16 }],
@@ -59,8 +68,8 @@ const projects: GridProps[] = [
     },
     {
         id: 3,
-        title: 'Contact',
-        description: 'You can contact me for any project or collaboration with the links available just below.',
+        title: 'Work in progress ...',
+        description: '',
         techno: [],
         images: [],
         video: []
@@ -73,6 +82,15 @@ const projects: GridProps[] = [
         images: [],
         video: []
     },
+    {
+        id: 9,
+        title: 'SkullzCity',
+        description: 'During my first-year internship for the Bachelor\'s degree in Multimedia and Internet Professions, I completed a 3D modeling and animation project using Blender, where I created a virtual city based on 2D plans. Over 140 hours, I faithfully recreated an entire city, including buildings, infrastructure, and roads, applying textures throughout. This project allowed me to develop advanced 3D modeling and animation skills while enhancing my ability to manage a complex project from start to finish.',
+        techno: [{ src: '/logo/blender.png', alt: 'Blender', width: 18, height: 16 }],
+        images: [{ src: '/skullzcity/skullz.jpg', alt: 'SkullzCity' }, { src: '/skullzcity/skullznight.jpg', alt: 'SkullzCity Night' }, { src: '/skullzcity/skullzsunset.jpg', alt: 'SkullzCity Sunset' }, { src: '/skullzcity/croquis_city.jpg', alt: 'Croquis' }, { src: '/skullzcity/parliamentz-nuit.jpg', alt: 'Parliamentz Nuit' }, { src: '/skullzcity/port.jpg', alt: 'Port' }, { src: '/skullzcity/pub_nuit.png', alt: 'Pub Nuit' }],
+        video: []
+
+    }
 ];
 
 const ProjectsGrid = (props: Props) => {
@@ -101,14 +119,14 @@ const ProjectsGrid = (props: Props) => {
         event.stopPropagation();
     };
 
-    const nextProject = useCallback(() => {
+    const nextImage = useCallback(() => {
         if (currentIndex === null || !project) return;
         const nextIndex = (currentIndex + 1) % project.images.length;
         setSelectedImage(project.images[nextIndex]);
         setCurrentIndex(nextIndex);
     }, [currentIndex, project]);
 
-    const prevProject = useCallback(() => {
+    const prevImage = useCallback(() => {
         if (currentIndex === null || !project) return;
         const prevIndex = (currentIndex - 1 + project.images.length) % project.images.length;
         setSelectedImage(project.images[prevIndex]);
@@ -120,9 +138,9 @@ const ProjectsGrid = (props: Props) => {
             document.body.style.overflow = 'hidden';
             const handleKeyDown = (event: KeyboardEvent) => {
                 if (event.key === 'ArrowRight') {
-                    nextProject();
+                    nextImage();
                 } else if (event.key === 'ArrowLeft') {
-                    prevProject();
+                    prevImage();
                 } else if (event.key === 'Escape') {
                     closeModal();
                 }
@@ -134,7 +152,7 @@ const ProjectsGrid = (props: Props) => {
         } else {
             document.body.style.overflow = '';
         }
-    }, [modal, nextProject, prevProject, closeModal]);
+    }, [modal, nextImage, prevImage, closeModal]);
 
     if (!project) {
         return null;
@@ -142,7 +160,7 @@ const ProjectsGrid = (props: Props) => {
 
     return (
         <div className="flex w-full p-6 sm:p-16">
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col justify-center items-center w-full">
                 <h1 className="text-4xl font-black text-white text-center">{project.title}</h1>
                 <div className='flex justify-center w-full p-8'>
                     <div className="w-full md:w-1/2 mt-2 h-0.5 bg-gradient-to-r from-slate-950 from-49% via-violet-400 via-50% to-slate-950 to-100%"></div>
@@ -164,7 +182,7 @@ const ProjectsGrid = (props: Props) => {
                 </div>
 
                 <div className="grid grid-cols-4 gap-4 p-10 sm:p-20">
-                    {project.images.map((image,  index) => (
+                    {project.images.map((image, index) => (
                         <div
                             key={index}
                             className={`
@@ -189,37 +207,46 @@ const ProjectsGrid = (props: Props) => {
                             />
                         </div>
                     ))}
-                      </div>
+                </div>
+                <div className="flex justify-center w-full items-center pb-10">
+                    <Link href={"/Projects/Discover"}>
+                    <button className=" relative flex items-center px-5 py-3 bg-slate-950 border-[1.5px] border-violet-950/50 rounded-full text-base  cursor-pointer hover:bg-slate-900/60 transition-all duration-300 text-white">
+                        <span data-glow="true" className="ui_glowing_borders"></span>
+                        <span>Other Projects</span>
+                    </button>
+                    </Link>
+                </div>
 
-                    {project.video.map((video, index) => (
-                        <div key={index} className="w-1/2">
-                            <video
-                                src={video.src}
-                                title={video.alt}
-                                controls
-                                loop
-                                className="object-cover w-full h-full rounded-lg cursor-pointer"
-                            />
-                        </div>
-                    ))}
-                
-              
+                {project.video.map((video, index) => (
+                    <div key={index} className="w-1/2">
+                        <video
+                            src={video.src}
+                            title={video.alt}
+                            controls
+                            loop
+                            className="object-cover w-full h-full rounded-lg cursor-pointer"
+                        />
+                    </div>
+                ))}
+
+
 
                 {modal && selectedImage && (
                     <div className="fixed flex items-center justify-center left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-screen h-screen bg-black/70 z-[900] backdrop-blur-[2px]" onClick={closeModal}>
                         <button className="sm:p-4">
-                            <IoIosArrowRoundBack className="text-white text-5xl" onClick={(e) => { e.stopPropagation(); prevProject(); }} />
+                            <IoIosArrowRoundBack className="text-white text-5xl" onClick={(e) => { e.stopPropagation(); prevImage(); }} />
                         </button>
-                        <div className="relative sm:mx-10" onClick={handleModalClick}>
+                        <div className="relative  lg:w-5/6 lg:h-5/6 z-[1000] " onClick={handleModalClick} >
                             <Image
                                 src={selectedImage.src}
-                                width={1400}
-                                height={933}
+                                width={3024}
+                                height={1980}
                                 alt={selectedImage.alt}
+                                className="object-contain w-full h-full"
                             />
                         </div>
                         <button className="sm:p-4">
-                            <IoIosArrowRoundForward className="text-white text-5xl" onClick={(e) => { e.stopPropagation(); nextProject(); }} />
+                            <IoIosArrowRoundForward className="text-white text-5xl" onClick={(e) => { e.stopPropagation(); nextImage(); }} />
                         </button>
                     </div>
                 )}
