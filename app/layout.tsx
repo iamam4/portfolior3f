@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar";
 import { titilium } from "./ui/fonts";
 import Model from "./components/Model";
 import Footer from "./components/Footer";
-import { Suspense, useState } from "react";
+import { useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { AnimatePresence } from "framer-motion";
 
@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" >
       <head>
-        <title>R3F Portoflio | Alexandre | Creative Developer</title>
+        <title>R3F Portfolio | Alexandre | Creative Developer</title>
       </head>
       <body className={`${titilium.className} antialiased`}>
         <Navbar setPath={setPath} />
