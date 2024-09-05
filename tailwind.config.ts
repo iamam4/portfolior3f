@@ -9,6 +9,11 @@ const config: Config = {
   ],
   theme: {
     extend: {  
+      boxShadow: {
+        
+        'ps': 'rgba(255, 255, 255, 0.199) -8px 8px, rgba(255, 255, 255, 0.19) -16px 16px',
+     
+        },
       
       },
     },

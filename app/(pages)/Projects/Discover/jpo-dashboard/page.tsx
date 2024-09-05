@@ -6,6 +6,7 @@ export default function SodWeb() {
         <div>
             <ProjectsGrid id={2}  />
         </div>
+
     );
 
 }

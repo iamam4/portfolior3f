@@ -148,3 +148,10 @@ body {
 		transform: rotateX(-80deg) rotateY(25deg) rotateZ(360deg);
 	}
 }
+
+.card_shadow:hover{
+	box-shadow: rgba(255, 255, 255, 0.199) -8px 8px, rgba(255, 255, 255, 0.19) -16px 16px ;
+	transition: all 300ms;
+
+}
+

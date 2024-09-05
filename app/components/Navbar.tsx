@@ -65,13 +65,11 @@ const Navbar: React.FC<NavbarProps> = ({ setPath }) => {
                             ))}
                             <div className="px-4 ml-3 border-l border-slate-300/10">
 
-                                <a href="https://www.behance.net/alexandremoreau8/" target="_blank" rel="noreferrer" className="text-slate-200 hover:text-violet-400"><FaBehanceSquare className=" text-2xl text-slate-400 hover:text-slate-200 cursor-pointer ml-2" /></a>
-
-
+                                <Link href="https://www.behance.net/alexandremoreau8/" target="_blank" rel="noreferrer" className="text-slate-200 hover:text-violet-400"><FaBehanceSquare className=" text-2xl text-slate-400 hover:text-slate-200 cursor-pointer ml-2" /></Link>
 
                             </div>
                             <div className="px-4">
-                                <a href="https://github.com/iamam4" target="_blank" rel="noreferrer" className="text-slate-200 hover:text-violet-400"><FaGithub className=" text-2xl text-slate-400 hover:text-slate-200 cursor-pointer" /></a>
+                                <Link href="https://github.com/iamam4" target="_blank" rel="noreferrer" className="text-slate-200 hover:text-violet-400"><FaGithub className=" text-2xl text-slate-400 hover:text-slate-200 cursor-pointer" /></Link>
                             </div>
                         </div>
                     </div>

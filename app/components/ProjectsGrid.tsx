@@ -5,19 +5,14 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useCallback } from "react";
 import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
+import { FiExternalLink } from "react-icons/fi";
 import Link from "next/link";
-
-
 
 interface ImageProps {
     src: string;
     alt: string;
 }
 
-interface VideoProps {
-    src: string;
-    alt: string;
-}
 
 interface TechnoProps {
     src: string;
@@ -33,7 +28,7 @@ interface GridProps {
     description: string;
     techno: TechnoProps[];
     images: ImageProps[],
-    video: VideoProps[]
+    link : string,
 }
 
 interface Props {
@@ -48,49 +43,43 @@ const projects: GridProps[] = [
         description: 'This website was developed for my school\'s open day and complements the dashboard featured on my projects page. It offers an immmersive 3D classroom tour where users can navigate freely, a comprehensive FAQ section, a video presentation, and registration form, among other features. Like the dashboard, this website was created as part of a school trimester project. Through this endeavor, I honed my design skills and gained valuable experience in crafting a user-friendly interface.',
         techno: [{ src: '/logo/angular.png', alt: 'Angular', width: 16, height: 16 }, { src: '/logo/typescript.svg', alt: 'TypeScript', width: 16, height: 16 }, { src: '/logo/three.png', alt: 'ThreeJs', width: 16, height: 16 }, { src: '/logo/php.svg', alt: 'PHP', width: 20, height: 20 }, { src: '/logo/sql.svg', alt: 'SQL', width: 16, height: 16 }],
         images: [{ src: '/jpo-homepage.png', alt: 'JPO' }, { src: '/jpo-website/butmmi.png', alt: 'butmmi' }, { src: '/jpo-website/prog.png', alt: 'Programme' }, { src: '/jpo-website/faq.png', alt: 'FAQ' }, { src: '/jpo-website/registration.png', alt: 'Inscription' }, { src: '/jpo-website/home-vt.png', alt: 'Virtual Tour' }, { src: '/jpo-website/vt.png', alt: 'Virtual Tour' }, { src: '/jpo-website/prog-vt.png', alt: 'Programme' }, { src: '/jpo-website/interaction.png ', alt: 'Interaction' }],
-        video: []
+        link : '',
     },
     {
         id: 2,
-        title: 'Dashboard | School Management',
+        title: 'Scool Open Day | Dashboard',
         description: 'For a trimester project, I developed a dashboard to manage my school\'s open day. The dashboard is user-friendly and responsive. It provides clear visitor statistics through detailed graphs and charts. Features include an expandable and collapsible sidebar, searchable and filterable data lists, and a secure system for administrators. Administrators can customize the dashboard\'s appearance with themes and adjust chart settings as needed. It also includes a dark mode. This project allowed me to enhance my skills in data management and project handling.',
-        techno : [{ src: '/logo/angular.png', alt: 'Angular', width: 16, height: 16 }, { src: '/logo/typescript.svg', alt: 'TypeScript', width: 16, height: 16 }, { src: '/logo/php.svg', alt: 'PHP', width: 20, height: 20 }, { src: '/logo/sql.svg', alt: 'SQL', width: 16, height: 16 }],
-        images : [{src: '/jpo-dashboard.png', alt: 'Dashboard'}, {src: '/dashboard/jpo-dashboard-dark.png', alt: 'Dashboard'}, {src: '/dashboard/charts-light.png', alt: 'Charts'}, {src : '/dashboard/list-light.png', alt: 'List'},{src: '/dashboard/charts-dark.png', alt:'Charts'}, {src: '/dashboard/list-dark.png', alt : 'List'}, {src: '/dashboard/settings.jpg', alt: 'Settings'}, {src: '/dashboard/mobile-light.jpg', alt: 'Mobile'}, {src: '/dashboard/mobile-dark.jpg', alt: 'Mobile'}],
-        video : []
-    },
-    {
-        id: 6,
-        title: '0147 | Sunglasses',
-        description: 'This project is a short 3D video realisation of a sun glasses model. The goal was to create a realistic and dynamic video to showcase the product. The video was created using Blender and rendered with Cycles. The model was created from scratch and the textures were hand painted. The video was edited with Adobe Premiere Pro.',
-        techno: [{ src: '/logo/blender.png', alt: 'Blender', width: 18, height: 16 }, { src: '/logo/premiere.svg', alt: 'Premiere Pro', width: 16, height: 16 }],
-        images: [],
-        video: [{ src: '/0147/0147.mp4', alt: '0147' }]
+        techno: [{ src: '/logo/angular.png', alt: 'Angular', width: 16, height: 16 }, { src: '/logo/typescript.svg', alt: 'TypeScript', width: 16, height: 16 }, { src: '/logo/php.svg', alt: 'PHP', width: 20, height: 20 }, { src: '/logo/sql.svg', alt: 'SQL', width: 16, height: 16 }],
+        images: [{ src: '/jpo-dashboard.png', alt: 'Dashboard' }, { src: '/dashboard/jpo-dashboard-dark.png', alt: 'Dashboard' }, { src: '/dashboard/charts-light.png', alt: 'Charts' }, { src: '/dashboard/list-light.png', alt: 'List' }, { src: '/dashboard/charts-dark.png', alt: 'Charts' }, { src: '/dashboard/list-dark.png', alt: 'List' }, { src: '/dashboard/settings.jpg', alt: 'Settings' }, { src: '/dashboard/mobile-light.jpg', alt: 'Mobile' }, { src: '/dashboard/mobile-dark.jpg', alt: 'Mobile' }],
+        link : '',
     },
     {
         id: 3,
-        title: 'Work in progress ...',
-        description: '',
-        techno: [],
-        images: [],
-        video: []
+        title: 'E-commerce Symfony',
+        description: 'In this project, I developed a simplified e-commerce application for selling products. I implemented an interface that allows users to list products with their photos, descriptions, and prices. Users can add items to a cart, which I manage within a session. I also created a product management page where users can modify, delete, or add products. This project allowed me to work on essential features such as product display, cart management, and navigation between the application\'s pages.',
+        techno: [{ src: '/logo/symfony.svg', alt: 'Symfony', width: 16, height: 16 }, { src: '/logo/php.svg', alt: 'PHP', width: 20, height: 20 }, { src: '/logo/sql.svg', alt: 'SQL', width: 16, height: 16 }],
+        images: [{ src: '/symfony.png', alt: 'Symfony' }, { src: '/symfony/admin.png', alt: 'Admin' }, { src: '/symfony/signup.png', alt: 'SignUp' }, { src: '/symfony/login.png', alt: 'LogIn' }, { src: '/symfony/modif.png', alt: 'Modif' }],
+        link : '',
     },
     {
         id: 4,
-        title: 'Technical monitoring',
-        description: 'I stay informed through social networks and documentation related to the various technologies I work with.',
-        techno: [{ src: '/logo/next.svg', alt: 'Next.js', width: 16, height: 16 }, { src: '/logo/angular.png', alt: 'Angular', width: 16, height: 16 }, { src: '/logo/react.webp', alt: 'React Three Fiber', width: 16, height: 16 }, { src: '/logo/three.png', alt: 'Three.js', width: 16, height: 16 }],
-        images: [],
-        video: []
+        title: 'Stavkirke',
+        description: 'In this project, I created a detailed 3D model of a traditional Stavkirke church using Blender and integrated it into a web application with Three.js. The application features two distinct pages. The first page showcases a rotating globe that spins endlessly, with a blinking indicator highlighting the clickable area. When users click on this area, they are redirected to the Stavkirke church page. On this second page, users can interact with the scene by toggling the light on and off using a button, switching the wood texture from light to dark, and revealing a description of the object by clicking on "croix001" within the 3D model. All animations, from the globe\'s rotation to the interactions with the church, were implemented exclusively using Three.js, creating an immersive and interactive experience.',
+        techno: [{ src: '/logo/blender.png', alt: 'Blender', width: 18, height: 16 }, { src: '/logo/three.png', alt: 'ThreeJs', width: 16, height: 16 }],
+        images: [{src: '/stavkirke.png', alt: 'Stavkirke'}, {src: '/stavkirke/darkstav.png', alt: 'DarkStav'}, {src : '/stavkirke/easter.png', alt: 'Easter'}],
+        link : 'https://stavkirke.000webhostapp.com/',
+
     },
     {
-        id: 9,
-        title: 'SkullzCity',
-        description: 'During my first-year internship for the Bachelor\'s degree in Multimedia and Internet Professions, I completed a 3D modeling and animation project using Blender, where I created a virtual city based on 2D plans. Over 140 hours, I faithfully recreated an entire city, including buildings, infrastructure, and roads, applying textures throughout. This project allowed me to develop advanced 3D modeling and animation skills while enhancing my ability to manage a complex project from start to finish.',
-        techno: [{ src: '/logo/blender.png', alt: 'Blender', width: 18, height: 16 }],
-        images: [{ src: '/skullzcity/skullz.jpg', alt: 'SkullzCity' }, { src: '/skullzcity/skullznight.jpg', alt: 'SkullzCity Night' }, { src: '/skullzcity/skullzsunset.jpg', alt: 'SkullzCity Sunset' }, { src: '/skullzcity/croquis_city.jpg', alt: 'Croquis' }, { src: '/skullzcity/parliamentz-nuit.jpg', alt: 'Parliamentz Nuit' }, { src: '/skullzcity/port.jpg', alt: 'Port' }, { src: '/skullzcity/pub_nuit.png', alt: 'Pub Nuit' }],
-        video: []
+        id: 5,
+        title: 'Clock',
+        description: 'In this project, I developed a web application using Angular and Three.js to create an interactive 3D clock. The clock is synchronized with the current time, with real-time animations representing the hours, minutes, and seconds. Users can interact with the application to customize the appearance of the clock, including changing the color of the frame and the background. This project allowed me to explore the capabilities of Three.js for 3D graphics creation while integrating these features within an Angular environment, ensuring a responsive and intuitive user interface.',
+        techno: [{ src: '/logo/angular.png', alt: 'Angular', width: 16, height: 16 }, { src: '/logo/typescript.svg', alt: 'TypeScript', width: 16, height: 16 }, { src: '/logo/three.png', alt: 'ThreeJs', width: 16, height: 16 }],
+        images: [{ src: '/clock.png', alt: 'Clock' }, { src: '/clock/cadre.png', alt: 'Cadre' }, { src: '/clock/background.png', alt: 'Background' }],
+        link : 'https://sae501clock.netlify.app',
+    },
 
-    }
+
 ];
 
 const ProjectsGrid = (props: Props) => {
@@ -180,6 +169,16 @@ const ProjectsGrid = (props: Props) => {
                 <div className="w-3/4 text-justify pt-10">
                     <p className="text-sm sm:text-lg text-white">{project.description}</p>
                 </div>
+                {project.link.length > 0 && (
+                    <Link href={project.link} target="_blank" className="flex flex-row w-full justify-center pt-10 text-sm sm:text-lg text-violet-400">
+                        <div className=" hover:text-violet-300 flex flex-row items-center ">
+                            <div className="underline">Website here</div>
+                            <div>
+                                <FiExternalLink className="ml-2" />
+                            </div>
+                        </div>
+                    </Link>
+                )}
 
                 <div className="grid grid-cols-4 gap-4 p-10 sm:p-20">
                     {project.images.map((image, index) => (
@@ -208,28 +207,14 @@ const ProjectsGrid = (props: Props) => {
                         </div>
                     ))}
                 </div>
-                <div className="flex justify-center w-full items-center pb-10">
+                <div className="flex justify-center w-full items-center py-10">
                     <Link href={"/Projects/Discover"}>
-                    <button className=" relative flex items-center px-5 py-3 bg-slate-950 border-[1.5px] border-violet-950/50 rounded-full text-base  cursor-pointer hover:bg-slate-900/60 transition-all duration-300 text-white">
-                        <span data-glow="true" className="ui_glowing_borders"></span>
-                        <span>Other Projects</span>
-                    </button>
+                        <button className=" relative flex items-center px-5 py-3 bg-slate-950 border-[1.5px] border-violet-950/50 rounded-full text-base  cursor-pointer hover:bg-slate-900/60 transition-all duration-300 text-white">
+                            <span data-glow="true" className="ui_glowing_borders"></span>
+                            <span>Other Projects</span>
+                        </button>
                     </Link>
                 </div>
-
-                {project.video.map((video, index) => (
-                    <div key={index} className="w-1/2">
-                        <video
-                            src={video.src}
-                            title={video.alt}
-                            controls
-                            loop
-                            className="object-cover w-full h-full rounded-lg cursor-pointer"
-                        />
-                    </div>
-                ))}
-
-
 
                 {modal && selectedImage && (
                     <div className="fixed flex items-center justify-center left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-screen h-screen bg-black/70 z-[900] backdrop-blur-[2px]" onClick={closeModal}>

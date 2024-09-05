@@ -43,39 +43,8 @@ const cards: CardProjectsProps[] = [
         link: '/Projects/Discover/symfony',
         images: [{ src: '/symfony.png', alt: 'Symfony' }]
     },
-
     {
         id: 4,
-        title: 'Bubble',
-        category: 'design - concept - animation - 3D',
-        link: '/Projects/Discover/bubble',
-        images: [{ src: '/bubble-v1.png', alt: 'Bubble' }]
-    },
-    {
-        id: 5,
-        title: 'Silmo',
-        category: 'design - concept - animation - 3D',
-        link: '/Projects/Discover/silmo',
-        images: [{ src: '/silmo.png', alt: 'Silmo' }]
-
-    },
-    {
-        id: 6,
-        title: '0147',
-        category: 'design - concept - animation -3D',
-        link: '/Projects/Discover/0147',
-        images: [{ src: '/0147.png', alt: '0147' }]
-    },
-    {
-        id: 7,
-        title: 'Former Portfolio',
-        category: 'web - design - development',
-        link: '/Projects/Discover/former-portfolio',
-        images: [{ src: '/portfolio.png', alt: 'Portfolio' }]
-
-    },
-    {
-        id: 8,
         title: 'Stavkirke',
         category: 'web - design - development - 3D',
         link: '/Projects/Discover/stavkirke',
@@ -83,17 +52,17 @@ const cards: CardProjectsProps[] = [
 
     },
     {
-        id: 9,
-        title: 'SkullzCity',
-        category: 'design - concept - 3D',
-        link: '/Projects/Discover/skullzcity',
-        images: [{ src: '/skullz.jpg', alt: 'SkullzCity' }]
+        id: 5,
+        title: 'Clock',
+        category: 'web - development - 3D',
+        link: '/Projects/Discover/clock',
+        images: [{ src: '/clock.png', alt: 'Clock' }]
     }
+
 ];
 
 
 const ProjectsCards = () => {
-
 
     return (
 
@@ -116,20 +85,20 @@ const ProjectsCards = () => {
             <div className='p-5 sm:p-20'>
                 
                 <div className="grid gap-10 lg:grid-cols-2 xl:grid-cols-3">
+                    
 
                     {
                         cards.map((card) => (
                             
                             <Link key={card.id} href={card.link}>
                                 <div className="group relative flex flex-col cursor-pointer rounded-lg">
-
                                     <Image
                                         src={card.images[0].src}
                                         alt={card.images[0].alt}
                                         width={3024}
                                         height={1644}
                                         objectFit='cover'
-                                        className='w-full h-auto rounded-lg'
+                                        className='w-full h-auto rounded-lg group-hover:shadow-ps group-hover:translate-x-2 group-hover:-translate-y-2 transition-all duration-300 '
                                     />
                                     <div className='pt-2'>
                                         <p className={`${lighttitilium.className} antialiased text-violet-400 uppercase text-sm items-center`}>{card.category}</p>
@@ -138,6 +107,14 @@ const ProjectsCards = () => {
                                 </div>
                             </Link>
                         ))}
+                </div>
+                <div className="flex justify-center w-full items-center pt-10">
+                    <Link href={"https://www.behance.net/alexandremoreau8/"} target='_blank'>
+                    <button className=" relative flex items-center px-5 py-3 bg-slate-950 border-[1.5px] border-violet-950/50 rounded-full text-base  cursor-pointer hover:bg-slate-900/60 transition-all duration-300 text-white">
+                        <span data-glow="true" className="ui_glowing_borders"></span>
+                        <span>3D Creations</span>
+                    </button>
+                    </Link>
                 </div>
             </div>
         </div>
