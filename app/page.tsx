@@ -1,12 +1,21 @@
-'use client'
-import Cards  from './components/Cards';
-export default function Home() {
+import Hero from './components/portfolio/Hero';
+import Lab from './components/portfolio/Lab';
+import Expertise from './components/portfolio/Expertise';
+import About from './components/portfolio/About';
+import Projects from './components/portfolio/Projects';
+import Contact from './components/portfolio/Contact';
 
+export default function Home() {
   return (
-    <div className="flex w-full h-full items-center justify-center">
-    <Cards id={1}  />
-  </div>
-  )
+    <main id="main">
+      <Hero />
+      <Lab />
+      <Expertise />
+      <About />
+      <Projects />
+      <Contact />
+    </main>
+  );
 }
 
 
